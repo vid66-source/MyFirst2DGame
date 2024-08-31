@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigibody: {fileID: 278040258}
+  flapStrength: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

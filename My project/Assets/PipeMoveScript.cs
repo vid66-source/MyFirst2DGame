@@ -14,6 +14,6 @@ public class PipeMoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position.x = 
+        transform.position = transform.position + (Vector3.left * moveSpeed);
     }
 }

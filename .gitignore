@@ -1,0 +1,16 @@
+Library/
+Temp/
+Obj/
+Logs/
+
+Build/
+Builds/
+
+.vs/
+*.suo
+*.user
+
+.vscode/
+
+.DS_Store
+Thumbs.db

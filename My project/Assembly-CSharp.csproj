@@ -60,11 +60,12 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.28f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PipeSpawnScript.cs" />
-    <Compile Include="Assets\BirdScript.cs" />
-    <Compile Include="Assets\LogicScript.cs" />
-    <Compile Include="Assets\PipeMoveScript.cs" />
-    <Compile Include="Assets\PipeMiddleScript.cs" />
+    <Compile Include="Assets\scripts\BirdScript.cs" />
+    <Compile Include="Assets\scripts\PipeMoveScript.cs" />
+    <Compile Include="Assets\scripts\SplashSpawnScirpt.cs" />
+    <Compile Include="Assets\scripts\PipeSpawnScript.cs" />
+    <Compile Include="Assets\scripts\PipeMiddleScript.cs" />
+    <Compile Include="Assets\scripts\LogicScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

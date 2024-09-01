@@ -29,6 +29,8 @@ public class PipeSpawnScript : MonoBehaviour
     void spawnPipe(){
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset; 
-        Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+        Vector3 pipespawnPosition = new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0);
+        pipespawnPosition.z = 0; // Задаємо координату z на 0
+        Instantiate(pipe, pipespawnPosition, transform.rotation);
     }
 }

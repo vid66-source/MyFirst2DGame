@@ -12,6 +12,10 @@ public class SplashSpawnScirpt : MonoBehaviour
     public int minSpawnCountDrops = 6;
     public int maxSpawnCountDrops = 12;
     private bool hasSpawned = false;
+    public string sortingLayerName = "Foreground";
+    public int sortingOrder = 1;
+    public float minScale = 1.2f; 
+    public float maxScale = 1.7f;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,12 +73,23 @@ public class SplashSpawnScirpt : MonoBehaviour
 
             // Convert the position from the local camera space to world space
             spawnPosition = mainCamera.transform.position + spawnPosition;
+            spawnPosition.z = 0;
 
             // Randomly select a prefab from the array
             GameObject selectedPrefab = markOnScreen[Random.Range(0, markOnScreen.Length)];
 
             // Instantiate the selected prefab at the generated position
-            Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
+            GameObject instantiatedObject = Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
+
+            Renderer prefabRenderer = instantiatedObject.GetComponent<Renderer>();
+            if (prefabRenderer != null)
+            {
+                prefabRenderer.sortingLayerName = sortingLayerName;
+                prefabRenderer.sortingOrder = sortingOrder;
+            }
+                float randomScale = Random.Range(minScale, maxScale);
+                instantiatedObject.transform.localScale = new Vector3(randomScale, randomScale, 1);
+
         }
     }
 }

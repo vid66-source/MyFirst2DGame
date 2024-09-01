@@ -898,9 +898,13 @@ MonoBehaviour:
   - {fileID: 6233613861024603630, guid: 8daa66dd68dc81149b9c4db9568ba53b, type: 3}
   - {fileID: 718644335123359903, guid: 9dd9a93c355b3034bacf53ebf5079ddf, type: 3}
   minSpawnCountSplash: 2
-  maxSpawnCountSplash: 5
-  minSpawnCountDrops: 3
-  maxSpawnCountDrops: 6
+  maxSpawnCountSplash: 4
+  minSpawnCountDrops: 6
+  maxSpawnCountDrops: 12
+  sortingLayerName: Foreground
+  sortingOrder: 1
+  minScale: 0.5
+  maxScale: 1.5
 --- !u!4 &1041025070
 Transform:
   m_ObjectHideFlags: 0

@@ -14,8 +14,8 @@ public class SplashSpawnScirpt : MonoBehaviour
     private bool hasSpawned = false;
     public string sortingLayerName = "Foreground";
     public int sortingOrder = 1;
-    public float minScale = 1.2f; 
-    public float maxScale = 1.7f;
+    public float minScale = 1.5f; 
+    public float maxScale = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,14 +82,15 @@ public class SplashSpawnScirpt : MonoBehaviour
             GameObject instantiatedObject = Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
 
             Renderer prefabRenderer = instantiatedObject.GetComponent<Renderer>();
+            
+            float randomScale = Random.Range(minScale, maxScale);
+            instantiatedObject.transform.localScale = new Vector3(randomScale, randomScale, 1);
+            
             if (prefabRenderer != null)
             {
                 prefabRenderer.sortingLayerName = sortingLayerName;
                 prefabRenderer.sortingOrder = sortingOrder;
             }
-                float randomScale = Random.Range(minScale, maxScale);
-                instantiatedObject.transform.localScale = new Vector3(randomScale, randomScale, 1);
-
         }
     }
 }

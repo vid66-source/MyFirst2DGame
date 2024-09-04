@@ -46,3 +46,6 @@ TagManager:
   - name: Foreground
     uniqueID: 2877913097
     locked: 0
+  - name: Pipes
+    uniqueID: 4144770335
+    locked: 0

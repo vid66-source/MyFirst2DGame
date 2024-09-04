@@ -793,8 +793,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipe: {fileID: 2091924483414987396, guid: 659d31c89c6a28d408f6cb09f98d4052, type: 3}
-  spawnRate: 2
-  heightOffset: 10
+  spawnRate: 2.1
+  heightOffset: 9
 --- !u!4 &627561620
 Transform:
   m_ObjectHideFlags: 0
@@ -897,14 +897,14 @@ MonoBehaviour:
   - {fileID: 1113271858278469379, guid: e57da318b4c1d9e48a8e538538e93eaf, type: 3}
   - {fileID: 6233613861024603630, guid: 8daa66dd68dc81149b9c4db9568ba53b, type: 3}
   - {fileID: 718644335123359903, guid: 9dd9a93c355b3034bacf53ebf5079ddf, type: 3}
-  minSpawnCountSplash: 2
-  maxSpawnCountSplash: 4
-  minSpawnCountDrops: 6
+  minSpawnCountSplash: 4
+  maxSpawnCountSplash: 6
+  minSpawnCountDrops: 8
   maxSpawnCountDrops: 12
   sortingLayerName: Foreground
   sortingOrder: 1
-  minScale: 0.5
-  maxScale: 1.5
+  minScale: 1.5
+  maxScale: 3
 --- !u!4 &1041025070
 Transform:
   m_ObjectHideFlags: 0

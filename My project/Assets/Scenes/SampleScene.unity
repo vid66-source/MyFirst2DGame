@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 278040260}
   m_Layer: 3
   m_Name: Bird
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,7 +374,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.06, y: -0.43}
   serializedVersion: 2
-  m_Radius: 2.15
+  m_Radius: 2.05
 --- !u!114 &278040260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigibody: {fileID: 278040258}
   flapStrength: 15
-  logic: {fileID: 0}
+  logic: {fileID: 629124704}
   birdIsAlive: 1
 --- !u!1 &391528061
 GameObject:
@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fab633a95ff7b4dbc4e31b5274ee86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdScript: {fileID: 0}
+  birdScript: {fileID: 278040260}
   splashPrefab: {fileID: 7451626443655266572, guid: 38bc9bc71fe482343b432da28901a211, type: 3}
   markOnScreen:
   - {fileID: 2547548956751177186, guid: 104ef87345f502c4c9a12b6fb003bf01, type: 3}
@@ -903,8 +903,8 @@ MonoBehaviour:
   maxSpawnCountDrops: 12
   sortingLayerName: Foreground
   sortingOrder: 1
-  minScale: 1.5
-  maxScale: 3
+  dropMinScale: 1.5
+  dropMaxScale: 3
 --- !u!4 &1041025070
 Transform:
   m_ObjectHideFlags: 0

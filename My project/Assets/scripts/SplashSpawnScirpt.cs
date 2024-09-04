@@ -14,15 +14,12 @@ public class SplashSpawnScirpt : MonoBehaviour
     private bool hasSpawned = false;
     public string sortingLayerName = "Foreground";
     public int sortingOrder = 1;
-    public float minScale;
-    public float maxScale;
+    public float dropMinScale;
+    public float dropMaxScale;
     // Start is called before the first frame update
     void Start()
     {
-        if (birdScript == null)
-        {
-            birdScript = FindObjectOfType<BirdScript>();
-        }
+
     }
 
     // Update is called once per frame
@@ -84,7 +81,7 @@ public class SplashSpawnScirpt : MonoBehaviour
 
             Renderer prefabRenderer = instantiatedObject.GetComponent<Renderer>();
             
-            float randomScale = Random.Range(minScale, maxScale);
+            float randomScale = Random.Range(dropMinScale, dropMaxScale);
             instantiatedObject.transform.localScale = new Vector3(randomScale, randomScale, 1);
             
             if (prefabRenderer != null)

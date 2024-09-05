@@ -390,7 +390,7 @@ MonoBehaviour:
   myRigibody: {fileID: 278040258}
   firstBirdSprite: {fileID: 21300000, guid: cf7e9a7c3e72e324894fc2738c7c61e8, type: 3}
   secondbirdSprite: {fileID: 21300000, guid: 302d674a9411a4746a6a27d744ce26f0, type: 3}
-  flapStrength: 15
+  flapStrength: 12
   logic: {fileID: 629124704}
   birdIsAlive: 1
 --- !u!1 &391528061

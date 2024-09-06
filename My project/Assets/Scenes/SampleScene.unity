@@ -1146,8 +1146,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -818, y: 379}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -385, y: 379}
+  m_SizeDelta: {x: 1000, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459398798
 MonoBehaviour:
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 155
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1429,6 +1429,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6eb56987a7d38a443a20f541bf2031ca, type: 3}
   - {fileID: 8300000, guid: f0cac64a0b7f97e4c9d732d0a6fd706f, type: 3}
   - {fileID: 8300000, guid: 7cc85fdc497b24d43b95d7740c3c541c, type: 3}
+  backGroundMusic: {fileID: 8300000, guid: f0d9fa311482be14c862a649c72bf2dd, type: 3}
 --- !u!4 &1878028856
 Transform:
   m_ObjectHideFlags: 0

@@ -11,7 +11,8 @@ public class BirdScript : MonoBehaviour
     public float flapStrength;
     public LogicScript logic;
     public bool birdIsAlive = true;
-    private bool hasPlayedSound = false;
+    private bool hasOhegaoDeathSound = false;
+    private bool hasSquishDeathSound = false;
     AudioManager audioManager;
     // Start is called before the first frame update
     
@@ -46,6 +47,14 @@ public class BirdScript : MonoBehaviour
         {
             birdIsAlive = false;
             logic.gameOver();
+            if(!hasOhegaoDeathSound){
+                audioManager.SoundsOnDeath();
+                hasOhegaoDeathSound = true;
+            }
+            if(!hasSquishDeathSound){
+                audioManager.SquishySoundsOnDeath();
+                hasSquishDeathSound = true;
+            }
         }
 
         if (Input.GetKey(KeyCode.Space))
@@ -64,6 +73,14 @@ public class BirdScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision){
         logic.gameOver();
         birdIsAlive = false;
+        if(!hasOhegaoDeathSound){
+            audioManager.SoundsOnDeath();
+            hasOhegaoDeathSound = true;
+        }
+        if(!hasSquishDeathSound){
+            audioManager.SquishySoundsOnDeath();
+            hasSquishDeathSound = true;
+        }
     }
 
     

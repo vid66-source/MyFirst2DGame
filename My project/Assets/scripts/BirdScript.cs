@@ -11,6 +11,8 @@ public class BirdScript : MonoBehaviour
     public float flapStrength;
     public LogicScript logic;
     public bool birdIsAlive = true;
+    private bool hasPlayedSound = false;
+    AudioManager audioManager;
     // Start is called before the first frame update
     
     void Awake()
@@ -22,6 +24,7 @@ public class BirdScript : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         
     }
 

@@ -12,8 +12,8 @@ public class SplashSpawnScirpt : MonoBehaviour
     public int minSpawnCountDrops;
     public int maxSpawnCountDrops;
     private bool hasSpawned = false;
-    public string sortingLayerName = "Foreground";
-    public int sortingOrder = 1;
+    public string sortingLayerName = "OnScreen(ForDeathEffects)";
+    public int sortingOrder = 0;
     public float dropMinScale;
     public float dropMaxScale;
     // Start is called before the first frame update

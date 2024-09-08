@@ -284,9 +284,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1417054199
-  m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingLayerID: 124383583
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 302d674a9411a4746a6a27d744ce26f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1111,6 +1111,104 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1145654632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1145654635}
+  - component: {fileID: 1145654634}
+  m_Layer: 0
+  m_Name: Clouds Shapes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1145654634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145654632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b792a8b3f3f497241ace4bc7d9be5994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudShapesArray:
+  - {fileID: 21300000, guid: 16c5a8bcf0ff4d04cb69c4af17d3417b, type: 3}
+  - {fileID: 21300000, guid: 2e5838457951f5f41bc34b99a7e00e5f, type: 3}
+  - {fileID: 21300000, guid: b2b1f52c59ad0b44089d14f9391fb5c4, type: 3}
+  - {fileID: 21300000, guid: fc2790740a7b7704a8680e93a60b15d5, type: 3}
+  - {fileID: 21300000, guid: c4e57f66e51605d42b78254bfe2e30c0, type: 3}
+  cloudShape: {fileID: 6280994079776390618, guid: fcbda848b93515f48830ff40db68bd0f, type: 3}
+  offScreenDistance: 5
+--- !u!4 &1145654635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145654632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7399986, y: 0.23235023, z: 1.2715546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1339342701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339342703}
+  - component: {fileID: 1339342702}
+  m_Layer: 0
+  m_Name: Clouds Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1339342702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339342701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2472a7891deb24ba1ba1b73f22de60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudsShapeManager: {fileID: 1145654634}
+  spawnInterval: 2
+--- !u!4 &1339342703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339342701}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7399986, y: 0.23235023, z: 1.2715546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1459398796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,3 +1722,5 @@ SceneRoots:
   - {fileID: 629124705}
   - {fileID: 1041025070}
   - {fileID: 1878028856}
+  - {fileID: 1145654635}
+  - {fileID: 1339342703}

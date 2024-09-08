@@ -10,11 +10,11 @@ public class LogicScript : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public GameObject gameOverScreen;
     public HighScoreManager highScoreManager;
-
     public TextMeshProUGUI highScoreText; // Reference to TextMeshProUGUI component
 
     void Start()
     {
+        highScoreManager = FindObjectOfType<HighScoreManager>();
         int highScore = HighScoreManager.GetHighScore();
         highScoreText.text = highScore.ToString(); // Display only the number
     }

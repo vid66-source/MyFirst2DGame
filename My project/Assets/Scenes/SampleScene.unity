@@ -1744,8 +1744,8 @@ MonoBehaviour:
   playerScore: 0
   scoreText: {fileID: 1459398798}
   gameOverScreen: {fileID: 1949731413}
-  highScoreManager: {fileID: 0}
-  highScoreText: {fileID: 0}
+  highScoreManager: {fileID: 1134796135}
+  highScoreText: {fileID: 345442821}
 --- !u!1 &1841881891
 GameObject:
   m_ObjectHideFlags: 0

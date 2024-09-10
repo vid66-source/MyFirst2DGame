@@ -395,6 +395,7 @@ MonoBehaviour:
   flapStrength: 15
   logic: {fileID: 629124704}
   birdIsAlive: 1
+  audioManager: {fileID: 1878028855}
 --- !u!1 &345442819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,8 +1339,6 @@ MonoBehaviour:
   playerScore: 0
   scoreText: {fileID: 1459398798}
   gameOverScreen: {fileID: 1949731413}
-  highScoreManager: {fileID: 1134796135}
-  highScoreText: {fileID: 345442821}
 --- !u!4 &629124705
 Transform:
   m_ObjectHideFlags: 0

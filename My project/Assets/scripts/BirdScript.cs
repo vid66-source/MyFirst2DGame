@@ -5,11 +5,11 @@ using UnityEngine;
 public class BirdScript : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
-    private Rigidbody2D myRigibody;
-    private SpriteRenderer spriteRenderer;
-    private Sprite firstBirdSprite;
-    private Sprite secondbirdSprite;
-    private float flapStrength;
+    [SerializeField] Rigidbody2D myRigibody;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite firstBirdSprite;
+    [SerializeField] Sprite secondbirdSprite;
+    [SerializeField] float flapStrength ;
     [SerializeField] GameObject logic;
     private LogicScript logicScript;
     internal bool birdIsAlive = true;

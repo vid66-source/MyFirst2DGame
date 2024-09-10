@@ -16,15 +16,10 @@ public class SplashSpawnScirpt : MonoBehaviour
     public int sortingOrder = 0;
     public float dropMinScale;
     public float dropMaxScale;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
+        // Review - ой - мені не дуже подобаєтся що еффект дивится на логіку - краще було би зробити подію на смерть пташки і вже там спавнити
         if (birdScript.birdIsAlive == false && !hasSpawned){
             SpawnMultipleSplash();
             SpawnMultipleDrops();
@@ -37,6 +32,7 @@ public class SplashSpawnScirpt : MonoBehaviour
     {
         int spawnCountSplash = Random.Range(minSpawnCountSplash, maxSpawnCountSplash + 1); // Randomly choose number of spawns
 
+        //Review - Camera.main - важка операція, по суті воно кожен фрейм шукає камеру через тег мейнкамера по всій сцені. Варто або назачити референс на камеру в едіторі або використовувати кешовану змінну
         Camera mainCamera = Camera.main;
 
         float screenWidth = mainCamera.orthographicSize * mainCamera.aspect;

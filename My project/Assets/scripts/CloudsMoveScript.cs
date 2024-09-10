@@ -12,9 +12,12 @@ public class CloudsMoveScript : MonoBehaviour
 
          if (IsOffScreen())
         {
+            //Review - https://martalex.gitbooks.io/gameprogrammingpatterns/content/chapter-6/6.3-object-pool.html
             Destroy(gameObject);
         }
     }
+    
+    //Review - дивне вирівнювання)
         bool IsOffScreen()
     {
         Camera mainCamera = Camera.main;

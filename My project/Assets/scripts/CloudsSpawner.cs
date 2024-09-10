@@ -15,6 +15,7 @@ public class CloudsSpawner : MonoBehaviour
 
     IEnumerator SpawnSprites()
     {
+        //Review - це виглядає як вічний цикл що в цілому така собі практика, я б краще дивився скільки зараз активних хмар, якщо менше N - спавнимо нову. І робив це не циклом а евентом коли хмара дестроїтся
         while (true)
         {
             // Spawn a random sprite using the SpriteManager

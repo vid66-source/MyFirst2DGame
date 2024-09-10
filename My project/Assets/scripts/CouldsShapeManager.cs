@@ -13,6 +13,7 @@ public class CouldsShapeManager : MonoBehaviour
         Sprite selectedCloudSprite = cloudShapesArray[randomCloudShape];
 
         // Get the camera and its view dimensions
+        //Review - Camera.main - важка операція, по суті воно кожен фрейм шукає камеру через тег мейнкамера по всій сцені. Варто або назачити референс на камеру в едіторі або використовувати кешовану змінну
         Camera mainCamera = Camera.main;
         float screenRightEdge = mainCamera.transform.position.x + mainCamera.orthographicSize * mainCamera.aspect;
 

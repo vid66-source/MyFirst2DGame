@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = backGroundMusic;
         musicSource.Play();
     }
+    
     public void SoundsOnDeath(){
         AudioClip deathSound = deathSoundArray[Random.Range(0, deathSoundArray.Length)];
         SFXSource.PlayOneShot(deathSound);

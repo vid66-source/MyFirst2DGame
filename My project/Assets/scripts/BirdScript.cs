@@ -4,29 +4,25 @@ using UnityEngine;
 
 public class BirdScript : MonoBehaviour
 {
-    public Rigidbody2D myRigibody;
+    [SerializeField] private Camera mainCamera;
+    private Rigidbody2D myRigibody;
     private SpriteRenderer spriteRenderer;
-    public Sprite firstBirdSprite;
-    public Sprite secondbirdSprite;
-    public float flapStrength;
-    public LogicScript logic;
-    public bool birdIsAlive = true;
+    private Sprite firstBirdSprite;
+    private Sprite secondbirdSprite;
+    private float flapStrength;
+    [SerializeField] GameObject logic;
+    private LogicScript logicScript;
+    internal bool birdIsAlive = true;
     private bool hasOhegaoDeathSound = false;
     private bool hasSquishDeathSound = false;
-    AudioManager audioManager;
+    [SerializeField] GameObject audioManager;
+    private AudioManager audioManagerScript; //Review - варто завжди вказувати модіфікатори доступу
     // Start is called before the first frame update
     
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = firstBirdSprite;
-    }
-
-    void Start()
-    {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        
     }
 
     // Update is called once per frame
@@ -37,22 +33,23 @@ public class BirdScript : MonoBehaviour
             myRigibody.velocity = Vector2.up * flapStrength;
         }
 
-        Camera mainCamera = Camera.main;
+        logicScript = logic.GetComponent<LogicScript>();
 
-        // Convert the object's world position to viewport position
         Vector3 viewPos = mainCamera.WorldToViewportPoint(transform.position);
 
-        // Check if the object is outside the camera's view
+        audioManagerScript = audioManager.GetComponent<AudioManager>();
+
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
         {
             birdIsAlive = false;
-            logic.gameOver();
+            logicScript.gameOver();
+            
             if(!hasOhegaoDeathSound){
-                audioManager.SoundsOnDeath();
+                audioManagerScript.SoundsOnDeath();
                 hasOhegaoDeathSound = true;
             }
             if(!hasSquishDeathSound){
-                audioManager.SquishySoundsOnDeath();
+                audioManagerScript.SquishySoundsOnDeath();
                 hasSquishDeathSound = true;
             }
         }
@@ -71,14 +68,14 @@ public class BirdScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        logic.gameOver();
+        logicScript.gameOver();
         birdIsAlive = false;
         if(!hasOhegaoDeathSound){
-            audioManager.SoundsOnDeath();
+            audioManagerScript.SoundsOnDeath();
             hasOhegaoDeathSound = true;
         }
         if(!hasSquishDeathSound){
-            audioManager.SquishySoundsOnDeath();
+            audioManagerScript.SquishySoundsOnDeath();
             hasSquishDeathSound = true;
         }
     }

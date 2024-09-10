@@ -6,6 +6,9 @@ public class PipeMoveScript : MonoBehaviour
 {
     public float moveSpeed = 5;
     public float deadZone = -30;
+    
+    
+    // Review - Так само краще видалити, хоч тут +- і пофіг але пусті методи без потреби моветор
     // Start is called before the first frame update
     void Start()
     {

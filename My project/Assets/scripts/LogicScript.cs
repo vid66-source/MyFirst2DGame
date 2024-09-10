@@ -14,12 +14,15 @@ public class LogicScript : MonoBehaviour
     public SplashSpawnScirpt splashScript;
     public BirdScript birdScript;
     private bool eventDeathHappend = false;
+    private int highScore;
     
     [SerializeField] GameObject audioManager;
     private AudioManager audioManagerScript;
 
     public void Start(){
         audioManagerScript = audioManager.GetComponent<AudioManager>();
+            highScore = PlayerPrefs.GetInt("HighScore", 0);
+            highScoreCount.text = highScore.ToString();
     }
 
     [ContextMenu("Increase Score")]
@@ -41,6 +44,13 @@ public class LogicScript : MonoBehaviour
             audioManagerScript.SoundsOnDeath();
             audioManagerScript.SquishySoundsOnDeath();
             eventDeathHappend = true;
+            if (playerScore > highScore)
+            {
+                highScore = playerScore;
+                highScoreCount.text = highScore.ToString();
+                PlayerPrefs.SetInt("HighScore", highScore);
+                PlayerPrefs.Save();
+            }
         }
     }
 }

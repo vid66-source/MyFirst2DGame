@@ -6,6 +6,7 @@ public class BirdScript : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
     [SerializeField] Rigidbody2D myRigibody;
+    [SerializeField] CircleCollider2D circleCollider2D;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite firstBirdSprite;
     [SerializeField] Sprite secondbirdSprite;
@@ -13,72 +14,52 @@ public class BirdScript : MonoBehaviour
     [SerializeField] GameObject logic;
     private LogicScript logicScript;
     internal bool birdIsAlive = true;
-    private bool hasOhegaoDeathSound = false;
-    private bool hasSquishDeathSound = false;
-    [SerializeField] GameObject audioManager;
-    private AudioManager audioManagerScript; //Review - варто завжди вказувати модіфікатори доступу
-    // Start is called before the first frame update
     
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        logicScript = logic.GetComponent<LogicScript>();
         spriteRenderer.sprite = firstBirdSprite;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) == true && birdIsAlive)
+        // Перевіряємо, чи птах живий
+        if (birdIsAlive)
         {
-            myRigibody.velocity = Vector2.up * flapStrength;
+            // Перевіряємо натискання клавіші пробіл
+            if (Input.GetKey(KeyCode.Space))
+            {
+                // Змінюємо спрайт птаха на спрайт при натисканні клавіші
+                spriteRenderer.sprite = firstBirdSprite;
+
+                // Змінюємо швидкість при першому натисканні клавіші пробіл
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    myRigibody.velocity = Vector2.up * flapStrength;
+                }
+            }
+            else
+            {
+                // Повертаємо спрайт птаха до початкового, коли клавіша відпущена
+                spriteRenderer.sprite = secondbirdSprite;
+            }
         }
-
-        logicScript = logic.GetComponent<LogicScript>();
-
         Vector3 viewPos = mainCamera.WorldToViewportPoint(transform.position);
-
-        audioManagerScript = audioManager.GetComponent<AudioManager>();
 
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
         {
             birdIsAlive = false;
             logicScript.gameOver();
-            
-            if(!hasOhegaoDeathSound){
-                audioManagerScript.SoundsOnDeath();
-                hasOhegaoDeathSound = true;
-            }
-            if(!hasSquishDeathSound){
-                audioManagerScript.SquishySoundsOnDeath();
-                hasSquishDeathSound = true;
-            }
         }
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            // Change to the pressed sprite
-            spriteRenderer.sprite = firstBirdSprite;
-        }
-        else
-        {
-            // Revert back to the default sprite when the button is released
-            spriteRenderer.sprite = secondbirdSprite;
-        }
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
+        Debug.Log("Collision detected with: " + collision.gameObject.name);
         logicScript.gameOver();
         birdIsAlive = false;
-        if(!hasOhegaoDeathSound){
-            audioManagerScript.SoundsOnDeath();
-            hasOhegaoDeathSound = true;
-        }
-        if(!hasSquishDeathSound){
-            audioManagerScript.SquishySoundsOnDeath();
-            hasSquishDeathSound = true;
-        }
     }
-
-    
 }

@@ -4,67 +4,44 @@ using UnityEngine;
 
 public class SplashSpawnScirpt : MonoBehaviour
 {
-    public BirdScript birdScript;
     public GameObject splashPrefab;
     public GameObject[] markOnScreen;
     public int minSpawnCountSplash;
     public int maxSpawnCountSplash;
     public int minSpawnCountDrops;
     public int maxSpawnCountDrops;
-    private bool hasSpawned = false;
     public string sortingLayerName = "OnScreen(ForDeathEffects)";
     public int sortingOrder = 0;
     public float dropMinScale;
     public float dropMaxScale;
+    public Camera mainCamera;
     // Update is called once per frame
-    void Update()
-    {
-        // Review - ой - мені не дуже подобаєтся що еффект дивится на логіку - краще було би зробити подію на смерть пташки і вже там спавнити
-        if (birdScript.birdIsAlive == false && !hasSpawned){
-            SpawnMultipleSplash();
-            SpawnMultipleDrops();
-            hasSpawned = true;    
-        }
-        
-    }
 
-    void SpawnMultipleSplash()
+    public void SpawnMultipleSplash()
     {
         int spawnCountSplash = Random.Range(minSpawnCountSplash, maxSpawnCountSplash + 1); // Randomly choose number of spawns
-
-        //Review - Camera.main - важка операція, по суті воно кожен фрейм шукає камеру через тег мейнкамера по всій сцені. Варто або назачити референс на камеру в едіторі або використовувати кешовану змінну
-        Camera mainCamera = Camera.main;
-
         float screenWidth = mainCamera.orthographicSize * mainCamera.aspect;
-
         float screenHeight = mainCamera.orthographicSize;
 
         for (int i = 0; i < spawnCountSplash; i++)
         {
             // Generate a random position within the screen bounds
             Vector3 spawnPosition = new Vector3(Random.Range(-screenWidth, screenWidth),Random.Range(-screenHeight, screenHeight),0);
-            
             Instantiate(splashPrefab, spawnPosition, Quaternion.identity);
         }
     }
-    void SpawnMultipleDrops()
+    public void SpawnMultipleDrops()
     {
-        // Get the camera component
-        Camera mainCamera = Camera.main;
-
         // Calculate screen bounds in world coordinates
         float screenWidth = mainCamera.orthographicSize * mainCamera.aspect;
         float screenHeight = mainCamera.orthographicSize;
-
         // Determine how many prefabs to spawn
         int spawnCountDrops = Random.Range(minSpawnCountDrops, maxSpawnCountDrops + 1);
-
         // Spawn the prefabs
         for (int i = 0; i < spawnCountDrops; i++)
         {
             // Generate a random position within the camera's view
             Vector3 spawnPosition = new Vector3(Random.Range(-screenWidth, screenWidth),Random.Range(-screenHeight, screenHeight),0);
-
             // Convert the position from the local camera space to world space
             spawnPosition = mainCamera.transform.position + spawnPosition;
             spawnPosition.z = 0;

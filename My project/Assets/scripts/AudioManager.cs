@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
 
-    [Header("----------- Audio Source -----------")]
+    [Header("----------- Audio Clip -----------")]
     public AudioClip[] deathSoundArray;
     public AudioClip[] deathSquishSoundArray;
     public AudioClip backGroundMusic;

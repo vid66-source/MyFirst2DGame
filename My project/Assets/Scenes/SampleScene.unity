@@ -392,7 +392,7 @@ MonoBehaviour:
   mainCamera: {fileID: 519420031}
   myRigibody: {fileID: 278040258}
   circleCollider2D: {fileID: 278040259}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 278040256}
   firstBirdSprite: {fileID: 21300000, guid: cf7e9a7c3e72e324894fc2738c7c61e8, type: 3}
   secondbirdSprite: {fileID: 21300000, guid: 302d674a9411a4746a6a27d744ce26f0, type: 3}
   flapStrength: 15
@@ -1337,13 +1337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6102efea0031c2b4983d824b26cd35f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScore: 0
-  playerHighScore: 0
   scoreCount: {fileID: 1459398798}
   highScoreCount: {fileID: 345442821}
   gameOverScreen: {fileID: 1949731413}
-  splashScript: {fileID: 1041025069}
-  birdScript: {fileID: 278040260}
+  splashSpawnObj: {fileID: 1041025068}
   audioManager: {fileID: 1878028854}
 --- !u!4 &629124705
 Transform:
@@ -1354,43 +1351,10 @@ Transform:
   m_GameObject: {fileID: 629124703}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 268.119, y: 272.45486, z: -5.525677}
+  m_LocalPosition: {x: 264.9503, y: 267.41388, z: -4.327314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 906937567}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &906937566
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 906937567}
-  m_Layer: 0
-  m_Name: LogicManagers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &906937567
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906937566}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1687098, y: -5.040981, z: 1.1983634}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1878028856}
-  - {fileID: 629124705}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041025068
@@ -1467,7 +1431,7 @@ GameObject:
   - component: {fileID: 1145654635}
   - component: {fileID: 1145654634}
   m_Layer: 0
-  m_Name: Clouds Shapes
+  m_Name: Clouds Shapes Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1485,6 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b792a8b3f3f497241ace4bc7d9be5994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 519420031}
   cloudShapesArray:
   - {fileID: 21300000, guid: 16c5a8bcf0ff4d04cb69c4af17d3417b, type: 3}
   - {fileID: 21300000, guid: 2e5838457951f5f41bc34b99a7e00e5f, type: 3}
@@ -1866,13 +1831,13 @@ Transform:
   m_GameObject: {fileID: 1878028854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.189767, y: 4.515914, z: 0.0645076}
+  m_LocalPosition: {x: -11.358477, y: -0.52506685, z: 1.262871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1841881893}
   - {fileID: 1910534534}
-  m_Father: {fileID: 906937567}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1910534532
 GameObject:
@@ -2045,7 +2010,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 278040257}
-  - {fileID: 23041667}
+  - {fileID: 629124705}
+  - {fileID: 1878028856}
   - {fileID: 481905374}
+  - {fileID: 23041667}
   - {fileID: 621914152}
-  - {fileID: 906937567}

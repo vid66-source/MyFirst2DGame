@@ -6,23 +6,22 @@ using TMPro;
 
 public class LogicScript : MonoBehaviour
 {
-    public int playerScore;
-    public int playerHighScore;
-    public TextMeshProUGUI scoreCount;
-    public TextMeshProUGUI highScoreCount;
-    public GameObject gameOverScreen;
-    public SplashSpawnScirpt splashScript;
-    public BirdScript birdScript;
+    private int playerScore;
+    private int playerHighScore;
+    [SerializeField] private TextMeshProUGUI scoreCount;
+    [SerializeField] private TextMeshProUGUI highScoreCount;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject splashSpawnObj; 
+    private SplashSpawnScirpt splashScript;
     private bool eventDeathHappend = false;
-    private int highScore;
-    
     [SerializeField] GameObject audioManager;
     private AudioManager audioManagerScript;
 
-    public void Start(){
-        audioManagerScript = audioManager.GetComponent<AudioManager>();
-            highScore = PlayerPrefs.GetInt("HighScore", 0);
-            highScoreCount.text = highScore.ToString();
+    private void Start(){
+            splashScript = splashSpawnObj.GetComponent<SplashSpawnScirpt>();
+            audioManagerScript = audioManager.GetComponent<AudioManager>();
+            playerHighScore = PlayerPrefs.GetInt("HighScore", 0);
+            highScoreCount.text = playerHighScore.ToString();
     }
 
     [ContextMenu("Increase Score")]
@@ -31,7 +30,7 @@ public class LogicScript : MonoBehaviour
           scoreCount.text = playerScore.ToString();
     }
 
-    public void restartGame(){
+    private void restartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -44,11 +43,11 @@ public class LogicScript : MonoBehaviour
             audioManagerScript.SoundsOnDeath();
             audioManagerScript.SquishySoundsOnDeath();
             eventDeathHappend = true;
-            if (playerScore > highScore)
+            if (playerScore > playerHighScore)
             {
-                highScore = playerScore;
-                highScoreCount.text = highScore.ToString();
-                PlayerPrefs.SetInt("HighScore", highScore);
+                playerHighScore = playerScore;
+                highScoreCount.text = playerHighScore.ToString();
+                PlayerPrefs.SetInt("HighScore", playerHighScore);
                 PlayerPrefs.Save();
             }
         }

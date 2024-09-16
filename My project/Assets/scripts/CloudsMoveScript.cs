@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class CloudsMoveScript : MonoBehaviour
 {
-    private float moveSpeed = 4;
+    [SerializeField] private float moveSpeed = 4;
+    private float extraOffset = 5;
+
+    private Camera mainCamera;
+
+
+    void Start()
+    {
+        // Присвоюємо основну камеру
+        mainCamera = Camera.main;
+    }
 
     void Update()
     {
@@ -20,10 +30,7 @@ public class CloudsMoveScript : MonoBehaviour
     //Review - дивне вирівнювання)
         bool IsOffScreen()
     {
-        Camera mainCamera = Camera.main;
-
-        float extraOffset = mainCamera.orthographicSize * 0.5f;
-
+        
         float screenLeftEdge = mainCamera.transform.position.x - (mainCamera.orthographicSize + extraOffset) * mainCamera.aspect;
 
         return transform.position.x < screenLeftEdge;

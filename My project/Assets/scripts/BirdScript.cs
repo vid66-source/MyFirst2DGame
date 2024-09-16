@@ -5,25 +5,24 @@ using UnityEngine;
 public class BirdScript : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
-    [SerializeField] Rigidbody2D myRigibody;
-    [SerializeField] CircleCollider2D circleCollider2D;
-    [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] Sprite firstBirdSprite;
-    [SerializeField] Sprite secondbirdSprite;
-    [SerializeField] float flapStrength ;
-    [SerializeField] GameObject logic;
+    [SerializeField] private Rigidbody2D myRigibody;
+    [SerializeField] private CircleCollider2D circleCollider2D;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite firstBirdSprite;
+    [SerializeField] private Sprite secondbirdSprite;
+    [SerializeField] private float flapStrength ;
+    [SerializeField] private GameObject logic;
     private LogicScript logicScript;
     internal bool birdIsAlive = true;
     
-    void Awake()
+    private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        logicScript = logic.GetComponent<LogicScript>();
         spriteRenderer.sprite = firstBirdSprite;
+        logicScript = logic.GetComponent<LogicScript>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // Перевіряємо, чи птах живий
         if (birdIsAlive)
@@ -58,8 +57,7 @@ public class BirdScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        Debug.Log("Collision detected with: " + collision.gameObject.name);
-        logicScript.gameOver();
         birdIsAlive = false;
+        logicScript.gameOver();
     }
 }

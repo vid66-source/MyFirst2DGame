@@ -5,15 +5,13 @@ using UnityEngine;
 public class CloudsMoveScript : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 4;
-    private float extraOffset = 5;
-
+    private float extraOffset = 15;
     private Camera mainCamera;
-
 
     void Start()
     {
         // Присвоюємо основну камеру
-        mainCamera = Camera.main;
+        mainCamera = mainCamera;
     }
 
     void Update()
@@ -22,17 +20,18 @@ public class CloudsMoveScript : MonoBehaviour
 
          if (IsOffScreen())
         {
-            //Review - https://martalex.gitbooks.io/gameprogrammingpatterns/content/chapter-6/6.3-object-pool.html
-            Destroy(gameObject);
+            // Повертаємо хмару в пул
+            gameObject.SetActive(false);
+            CloudPool.Instance.ReturnToPool(gameObject);
         }
     }
     
-    //Review - дивне вирівнювання)
+    //Review - а так?
         bool IsOffScreen()
     {
-        
-        float screenLeftEdge = mainCamera.transform.position.x - (mainCamera.orthographicSize + extraOffset) * mainCamera.aspect;
 
-        return transform.position.x < screenLeftEdge;
+        Vector3 screenPosition = mainCamera.WorldToScreenPoint(transform.position);
+
+        return screenPosition.x < -extraOffset;
     }
 }

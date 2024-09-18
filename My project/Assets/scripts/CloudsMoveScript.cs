@@ -11,7 +11,7 @@ public class CloudsMoveScript : MonoBehaviour
     void Start()
     {
         // Присвоюємо основну камеру
-        mainCamera = mainCamera;
+        mainCamera = Camera.main;
     }
 
     void Update()

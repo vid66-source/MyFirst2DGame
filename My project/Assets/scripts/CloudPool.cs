@@ -21,6 +21,12 @@ public class CloudPool : MonoBehaviour
         for (int i = 0; i< poolSize; i++){
             GameObject cloud = Instantiate(cloudPrefabs[Random.Range(0, cloudPrefabs.Length)]);
             cloud.SetActive(false);
+
+            if (cloud.GetComponent<CloudsMoveScript>() == null)
+                {
+                    cloud.AddComponent<CloudsMoveScript>();
+                }
+                
             pool.Add(cloud);
             cloud.AddComponent<CloudsMoveScript>();
         }
